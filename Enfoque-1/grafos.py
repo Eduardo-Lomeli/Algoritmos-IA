@@ -37,4 +37,23 @@ class Problema:
     
 # %% Nodo
 class Nodo:
+    def __init__(self, estado, accion=None, acciones=None, padre=None):
+           self.estado = estado
+           self.accion = accion
+           self.acciones = acciones
+           self.padre = padre
         
+    def __str__(self):
+            return self.estado.nombre
+       
+    def expandir(self, problema):
+           self.hijos = []
+           if not self.acciones:
+               if self.estado.nombre in problema.acciones.keys():
+                    return self.hijos
+               self.acciones = problema.acciones[self.estado.nombre]
+           for accion in self.acciones.keys():
+                accion_hijo = Accion(accion)
+                estado_hijo = problema.resultado(self.estado, accion_hijo)
+                
+                

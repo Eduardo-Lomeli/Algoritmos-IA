@@ -54,6 +54,10 @@ class Nodo:
                self.acciones = problema.acciones[self.estado.nombre]
            for accion in self.acciones.keys():
                 accion_hijo = Accion(accion)
-                estado_hijo = problema.resultado(self.estado, accion_hijo)
-                
-                
+                nuevo_estado = problema.resultado(self.estado, accion_hijo)
+                acciones_nuevo = {}
+                if nuevo_estado.nombre in problema.acciones.keys():
+                    acciones_nuevo = problema.acciones[nuevo_estado.nombre]
+                hijo = Nodo(nuevo_estado, accion_hijo, acciones_nuevo, self)
+                self.hijos.append(hijo)
+           return self.hijos

@@ -1,0 +1,35 @@
+Así es como se define como un CSP:
+
+    Variables: Las regiones.
+
+        {WA, NT, SA, Q, NSW, V, T}
+
+    Dominio: Los colores disponibles para cada variable.
+
+        {Rojo, Verde, Azul}
+
+    Restricciones: Las reglas de adyacencia.
+
+        WA \ne NT (Western Australia no puede ser igual que Northern Territory)
+
+        WA \ne SA
+
+        NT \ne SA
+
+        NT \ne Q
+
+        SA \ne Q
+
+        SA \ne NSW
+
+        SA \ne V
+
+        Q \ne NSW
+
+        NSW \ne V
+
+        (Tasmania (T) no es adyacente a nada, por lo que no tiene restricciones).
+
+La Solución: Una solución no es un camino, sino una asignación final que cumple todas las reglas, por ejemplo:
+
+    {WA: Rojo, NT: Verde, SA: Azul, Q: Rojo, NSW: Verde, V: Rojo, T: Azul}
